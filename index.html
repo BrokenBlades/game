@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Студента с Выбором Комнат</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Игра: Студент после похмелья</h1>
+        <div class="status-bar">
+            <div>HP: <img src="img/hearticon.png" alt="HP" class="icon"><span id="hpCounter">100</span></div>
+            <div>Монеты: <img src="img/coin.png" alt="Монеты" class="icon"><span id="coinCounter">0</span></div>
+        </div>
+        <div class="map">
+            <button class="room-button" data-room="Комната 1">Комната 1</button>
+            <button class="room-button" data-room="Комната 2">Комната 2</button>
+            <button class="room-button" data-room="Комната 3">Комната 3</button>
+            <button class="room-button" onclick="goToCafeteria()">Столовая</button>
+            <button class="room-button" onclick="fallOutWindow()">Выйти в окно</button>
+            <button class="room-button" onclick="goToToilet()">В туалет</button>
+            <button class="room-button" onclick="goToUniversity()">Путь до Университета</button>
+        </div>
+        <div id="roomDisplay" class="animated"></div>
+        <img id="roomImage" src="" alt="Фото комнаты" class="animated" style="display: none;">
+        <div id="eventDisplay" class="animated"></div>
+        <div id="cafeteriaMenu" style="display: none; margin-top: 20px;">
+            <h2>Меню столовой</h2>
+            <button onclick="buyItem('котлетки с пюрешкой')">Котлетки с пюрешкой - 10 монет (восстанавливает 25 HP)</button><br>
+            <button onclick="buyItem('рамэн')">Рамэн - 20 монет (восстанавливает 50 HP)</button><br>
+            <button onclick="buyItem('сосиска в тесте')">Сосиска в тесте - 5 монет (восстанавливающая 15 HP)</button>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+        <div id="deathScreen" class="death-screen" style="display: none;">
+            <img src="img/death.png" alt="Смерть" class="death-image">
+            <h2>Ты погиб!</h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
